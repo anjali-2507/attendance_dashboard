@@ -68,7 +68,12 @@ const EmployeeCard = ({id,employeeName,employeeNumber,checkInTime,checkOutTime,s
               </TableRow>
               <TableRow>
                 <TableCell>Contact</TableCell>
-                <TableCell>{`+${employeeNumber?.toString().slice(0,2)}-${employeeNumber?.toString().slice(2)}`}</TableCell>
+                <TableCell>
+  {employeeNumber
+    ? `+91-${employeeNumber.toString().replace(/^\+?91/, "")}` // Ensure no duplicate +91
+    : "N/A"}
+</TableCell>
+
               </TableRow>
               <TableRow>
                 <TableCell>CheckIn</TableCell>
